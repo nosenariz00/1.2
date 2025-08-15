@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flappy Monads</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Flappy Monads</h1>
+      <div class="theme-toggle">
+        <button id="themeBtn">🌙</button>
+      </div>
+    </header>
+
+    <main id="lobby">
+      <div class="wallet-section">
+        <button id="connectWalletBtn">Conectar Wallet</button>
+        <button id="disconnectWalletBtn" class="hidden">Desconectar</button>
+        <p id="wallet-address" class="hidden">No conectado</p>
+      </div>
+
+      <div class="controls hidden" id="controls">
+        <button id="mintBtn">Mint NFT</button>
+        <button id="playButton">Jugar</button>
+      </div>
+      
+      <div class="leaderboard-section">
+        <h3>🏆 Leaderboard</h3>
+        <div id="leaderboard-list" class="leaderboard-list">
+          <div class="leaderboard-item">
+            <span class="rank">#1</span>
+            <span class="address">Conecta wallet para ver scores</span>
+            <span class="score">-</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section id="gameScreen" class="hidden">
+      <div id="flappyContainer">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div class="hud">
+          <div id="score">0</div>
+          <div class="hud-buttons">
+            <button id="restartBtn">Reiniciar</button>
+            <button id="backBtn">Salir</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <small>Testnet: Monad</small>
+    </footer>
+  </div>
+
+  <!-- Scripts externos: ethers primero -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+
+  <!-- Scripts del juego -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.9/lib/p5.min.js"></script>
+  <script src="rectCircle.js"></script>
+  <script src="flappyGame.js"></script>
+
+  <!-- Scripts de la app (wallet.js después de ethers) -->
+  <script type="module" src="wallet.js"></script>
+  <script type="module" src="main.js"></script>
+  <script src="theme.js"></script>
+</body>
